@@ -146,9 +146,12 @@ M.lspconfig = {
 
     ["K"] = {
       function()
-        vim.lsp.buf.hover()
+         local winid = require('ufo').peekFoldedLinesUnderCursor()
+         if not winid then
+          vim.lsp.buf.hover()
+        end
       end,
-      "LSP hover",
+      "LSP/Fold hover",
     },
 
     ["gi"] = {
@@ -186,12 +189,12 @@ M.lspconfig = {
       "LSP code action",
     },
 
-    ["gr"] = {
-      function()
-        vim.lsp.buf.references()
-      end,
-      "LSP references",
-    },
+    -- ["gr"] = {
+    --   function()
+    --     vim.lsp.buf.references()
+    --   end,
+    --   "LSP references",
+    -- },
 
     ["<leader>lf"] = {
       function()
@@ -277,7 +280,6 @@ M.telescope = {
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
     ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
-
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
     ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
@@ -289,6 +291,14 @@ M.telescope = {
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
     ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
+
+    --trouble 
+    ["<leader>xx"] = { "<cmd> TroubleToggle <CR>", "Toggle Trouble" },
+    ["<leader>xw"] = { "<cmd> TroubleToggle workspace_diagnostics<CR>", "workspace_diagnostics" },
+    ["<leader>xd"] = { "<cmd> TroubleToggle document_diagnostics<CR>", "document_diagnostics" },
+    ["<leader>xq"] = { "<cmd> TroubleToggle quickfix<CR>", "quickfix" },
+    ["<leader>xl"] = { "<cmd> TroubleToggle loclist<CR>", "loclist" },
+    ["gr"] = { "<cmd> TroubleToggle lsp_references<CR>", "LSP references" },
   },
 }
 
@@ -297,21 +307,21 @@ M.nvterm = {
 
   t = {
     -- toggle in terminal mode
-    ["<A-i>"] = {
+    ["<leader>i"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
       "Toggle floating term",
     },
 
-    ["<A-h>"] = {
+    ["<leader>h"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
       "Toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+    ["<leader>v"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
@@ -321,21 +331,21 @@ M.nvterm = {
 
   n = {
     -- toggle in normal mode
-    ["<A-i>"] = {
+    ["<leader>i"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
       "Toggle floating term",
     },
 
-    ["<A-h>"] = {
+    ["<leader>h"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
       "Toggle horizontal term",
     },
 
-    ["<A-v>"] = {
+    ["<leader>v"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
@@ -343,19 +353,19 @@ M.nvterm = {
     },
 
     -- new
-    ["<leader>h"] = {
-      function()
-        require("nvterm.terminal").new "horizontal"
-      end,
-      "New horizontal term",
-    },
-
-    ["<leader>v"] = {
-      function()
-        require("nvterm.terminal").new "vertical"
-      end,
-      "New vertical term",
-    },
+    -- ["<leader>h"] = {
+    --   function()
+    --     require("nvterm.terminal").new "horizontal"
+    --   end,
+    --   "New horizontal term",
+    -- },
+    --
+    -- ["<leader>v"] = {
+    --   function()
+    --     require("nvterm.terminal").new "vertical"
+    --   end,
+    --   "New vertical term",
+    -- },
   },
 }
 

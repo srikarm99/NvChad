@@ -40,6 +40,11 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
+M.capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+
 require("lspconfig").lua_ls.setup {
   on_init = M.on_init,
   on_attach = M.on_attach,
@@ -63,5 +68,6 @@ require("lspconfig").lua_ls.setup {
     },
   },
 }
+
 
 return M
