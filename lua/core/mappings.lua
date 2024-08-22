@@ -189,12 +189,12 @@ M.lspconfig = {
       "LSP code action",
     },
 
-    -- ["gr"] = {
-    --   function()
-    --     vim.lsp.buf.references()
-    --   end,
-    --   "LSP references",
-    -- },
+    ["gr"] = {
+      function()
+        vim.lsp.buf.references()
+      end,
+      "LSP references",
+    },
 
     ["<leader>lf"] = {
       function()
@@ -292,42 +292,35 @@ M.telescope = {
 
     ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
 
-    --trouble 
-    ["<leader>xx"] = { "<cmd> TroubleToggle <CR>", "Toggle Trouble" },
-    ["<leader>xw"] = { "<cmd> TroubleToggle workspace_diagnostics<CR>", "workspace_diagnostics" },
-    ["<leader>xd"] = { "<cmd> TroubleToggle document_diagnostics<CR>", "document_diagnostics" },
-    ["<leader>xq"] = { "<cmd> TroubleToggle quickfix<CR>", "quickfix" },
-    ["<leader>xl"] = { "<cmd> TroubleToggle loclist<CR>", "loclist" },
-    ["gr"] = { "<cmd> TroubleToggle lsp_references<CR>", "LSP references" },
   },
 }
 
 M.nvterm = {
   plugin = true,
 
-  t = {
-    -- toggle in terminal mode
-    ["<leader>i"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
-      "Toggle floating term",
-    },
-
-    ["<leader>h"] = {
-      function()
-        require("nvterm.terminal").toggle "horizontal"
-      end,
-      "Toggle horizontal term",
-    },
-
-    ["<leader>v"] = {
-      function()
-        require("nvterm.terminal").toggle "vertical"
-      end,
-      "Toggle vertical term",
-    },
-  },
+  -- t = {
+  --   -- toggle in terminal mode
+  --   ["<leader>i"] = {
+  --     function()
+  --       require("nvterm.terminal").toggle "float"
+  --     end,
+  --     "Toggle floating term",
+  --   },
+  --
+  --   ["<leader>h"] = {
+  --     function()
+  --       require("nvterm.terminal").toggle "horizontal"
+  --     end,
+  --     "Toggle horizontal term",
+  --   },
+  --
+  --   ["<leader>v"] = {
+  --     function()
+  --       require("nvterm.terminal").toggle "vertical"
+  --     end,
+  --     "Toggle vertical term",
+  --   },
+  -- },
 
   n = {
     -- toggle in normal mode
